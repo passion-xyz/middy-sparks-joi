@@ -2,7 +2,7 @@ import _ from 'lodash'
 import createError from 'http-errors'
 import Joi, { Schema, ValidationResult } from 'joi'
 
-interface Handler {
+interface Request {
 	event: any
 	headers?: any
 }
@@ -24,9 +24,9 @@ export const middleware = ({
 	})
 
 	return {
-		before: (handler: Handler, next: () => void) => {
+		before: (request: Request) => {
 			_.map(_.keys(schema), (key: string) => {
-				const input = handler.event[key]
+				const input = request.event[key]
 				const validation: ValidationResult = schema[key].validate(
 					input,
 					options,
@@ -36,12 +36,11 @@ export const middleware = ({
 					const error = new createError.BadRequest(
 						'Event object failed validation',
 					)
-					handler.event.headers = { ...handler.event.headers }
+					request.event.headers = { ...request.event.headers }
 					error.details = validation.error.details
 					throw error
 				}
 			})
-			return next()
 		},
 	}
 }
