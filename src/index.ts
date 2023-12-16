@@ -34,7 +34,7 @@ export const middleware = ({
 
 				if (validation.error) {
 					const error = new createError.BadRequest(
-						'Event object failed validation',
+						`Invalid input: ${_.join(_.map(validation.error.details,'message'),'; ')}`,
 					)
 					request.event.headers = { ...request.event.headers }
 					error.details = validation.error.details
