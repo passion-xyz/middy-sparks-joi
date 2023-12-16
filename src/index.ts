@@ -6,17 +6,13 @@ interface Handler {
 	headers?: any
 }
 
-interface Middleware {
-	before: (handler: Handler, next: () => void) => void
-}
-
 export const middleware = ({
 	schema,
 	options,
 }: {
 	schema: Schema
 	options?: any
-}): Middleware => {
+}) => {
 	if (!Joi.isSchema(schema)) {
 		console.log(
 			'[middy-sparks-joi] The schema you provided is not a valid Joi schema',
