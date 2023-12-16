@@ -1,31 +1,37 @@
 {
-  "name": "middy-sparks-joi",
-  "version": "0.0.2",
-  "main": "src/index.js",
-  "repository": "github:ankcorn/middy-sparks-joi",
-  "author": "ThomasAnkcorn <thomasankcorn@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "@hapi/joi": "^17.1.0",
-    "@middy/core": "^1.0.0-beta.2",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.9.0",
-    "eslint-plugin-jest": "^23.6.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "install-peers-cli": "^2.2.0",
-    "jest": "^25.1.0",
-    "prettier": "^1.19.1"
-  },
-  "scripts": {
-    "test": "jest"
-  },
-  "dependencies": {
-    "http-errors": "^1.7.3"
-  },
-  "keywords": [
-    "joi",
-    "middleware",
-    "middy",
-    "validation"
-  ]
+	"name": "middy-sparks-joi",
+	"version": "0.0.2",
+	"main": "dist/index.js",
+	"scripts": {
+		"start": "ts-node src/index.ts",
+		"build": "tsc"
+	},
+	"repository": "github:ankcorn/middy-sparks-joi",
+	"author": "ThomasAnkcorn <thomasankcorn@gmail.com>",
+	"license": "MIT",
+	"devDependencies": {
+		"@hapi/joi": "^17.1.0",
+		"@middy/core": "^1.0.0-beta.2",
+		"@types/hapi__joi": "^17.1.14",
+		"@types/http-errors": "^2.0.4",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.9.0",
+		"eslint-plugin-jest": "^23.6.0",
+		"eslint-plugin-prettier": "^3.1.2",
+		"install-peers-cli": "^2.2.0",
+		"jest": "^25.1.0",
+		"prettier": "^1.19.1",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.3.3"
+	},
+	"dependencies": {
+		"http-errors": "^1.7.3",
+		"joi": "^17.11.0"
+	},
+	"keywords": [
+		"joi",
+		"middleware",
+		"middy",
+		"validation"
+	]
 }
